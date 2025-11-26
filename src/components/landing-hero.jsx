@@ -7,6 +7,14 @@ export default function LandingHero() {
   const [widths, setWidths] = useState(["0%", "0%", "0%"]);
   const [opacities, setOpacities] = useState([0, 0, 0]);
 
+  const card1Ref = useRef(null);
+  const card2Ref = useRef(null);
+  const card3Ref = useRef(null);
+
+  const [mouse1, setMouse1] = useState({ x: 0, y: 0 });
+  const [mouse2, setMouse2] = useState({ x: 0, y: 0 });
+  const [mouse3, setMouse3] = useState({ x: 0, y: 0 });
+
   useEffect(() => {
     window.dat = dat;
     window.ga = window.ga || function () {};
@@ -45,6 +53,19 @@ export default function LandingHero() {
     };
   }, []);
 
+  const handleCardMouseMove = (event, cardRef, setMouseState) => {
+    if (!cardRef.current) return;
+
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    setMouseState({
+      x: (x / rect.width) * 2 - 1,
+      y: -(y / rect.height) * 2 + 1,
+    });
+  };
+
   return (
     <div className="w-screen h-screen flex flex-col m-0 p-0 overflow-hidden relative">
       <style>{`
@@ -55,7 +76,7 @@ export default function LandingHero() {
           left: 0;
           height: 100%;
           background-color: white;
-          transition: width 1s ease-in-out;
+          transition: width 1s ease-in-out, background-color 0.3s;
           z-index: 1;
         }
         .card-content {
@@ -67,6 +88,12 @@ export default function LandingHero() {
           align-items: center;
           justify-content: space-between;
         }
+        .title-font {
+          font-family: 'Black Ops One', sans-serif;
+        }
+        .group:hover .filler-joueur { background-color: #1A5632; }
+        .group:hover .filler-garde { background-color: #E54B6A; }
+        .group:hover .filler-vip { background-color: #FFD700; }
       `}</style>
 
       <canvas
@@ -83,10 +110,12 @@ export default function LandingHero() {
 
       {/* Card 1: Joueur */}
       <div
-        className="flex-1 w-full border-b-2 border-[#E54B6A] relative"
+        ref={card1Ref}
+        onMouseMove={(e) => handleCardMouseMove(e, card1Ref, setMouse1)}
+        className="flex-1 w-full border-b-2 border-[#E54B6A] relative group"
         style={{ zIndex: 1 }}
       >
-        <div className="filler" style={{ width: widths[0] }}></div>
+        <div className="filler filler-joueur" style={{ width: widths[0] }}></div>
 
         <div
           className="card-content"
@@ -97,19 +126,22 @@ export default function LandingHero() {
               modelPath="/3D/landing/vue-joueur.glb"
               scale={6.2}
               position={[0, -4.0, 0]}
+              mouse={mouse1}
             />
           </div>
 
-          <span className="text-8xl font-bold pr-10">Joueur</span>
+          <span className="title-font text-8xl font-bold pr-10 group-hover:text-white transition-colors duration-300">Joueur</span>
         </div>
       </div>
 
       {/* Card 2: Garde */}
       <div
-        className="flex-1 w-full border-b-2 border-[#1A5632] relative"
+        ref={card2Ref}
+        onMouseMove={(e) => handleCardMouseMove(e, card2Ref, setMouse2)}
+        className="flex-1 w-full border-b-2 border-[#1A5632] relative group"
         style={{ zIndex: 1 }}
       >
-        <div className="filler" style={{ width: widths[1] }}></div>
+        <div className="filler filler-garde" style={{ width: widths[1] }}></div>
 
         <div
           className="card-content"
@@ -120,16 +152,22 @@ export default function LandingHero() {
               modelPath="/3D/landing/vue-garde.glb"
               scale={0.07}
               position={[0, -4.0, 0]}
+              mouse={mouse2}
             />
           </div>
 
-          <span className="text-8xl font-bold pr-10">Garde</span>
+          <span className="title-font text-8xl font-bold pr-10 group-hover:text-white transition-colors duration-300">Garde</span>
         </div>
       </div>
 
       {/* Card 3: VIP */}
-      <div className="flex-1 w-full relative" style={{ zIndex: 1 }}>
-        <div className="filler" style={{ width: widths[2] }}></div>
+      <div
+        ref={card3Ref}
+        onMouseMove={(e) => handleCardMouseMove(e, card3Ref, setMouse3)}
+        className="flex-1 w-full relative group"
+        style={{ zIndex: 1 }}
+      >
+        <div className="filler filler-vip" style={{ width: widths[2] }}></div>
 
         <div
           className="card-content"
@@ -140,10 +178,11 @@ export default function LandingHero() {
               modelPath="/3D/landing/vue-game-master.glb"
               scale={7.2}
               position={[0, -6.0, 0]}
+              mouse={mouse3}
             />
           </div>
 
-          <span className="text-8xl font-bold pr-10">VIP</span>
+          <span className="title-font text-8xl font-bold pr-10 group-hover:text-white transition-colors duration-300">VIP</span>
         </div>
       </div>
     </div>
