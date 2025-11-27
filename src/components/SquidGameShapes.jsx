@@ -19,6 +19,22 @@ const shapeAnims = `
     50% { transform: translate(-40px, -30px) rotate(90deg); }
     75% { transform: translate(30px, -70px) rotate(135deg); }
   }
+  @keyframes fly4 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    20% { transform: translate(60px, 10px) rotate(120deg) scale(0.9); }
+    40% { transform: translate(-70px, -20px) rotate(240deg) scale(1.1); }
+    60% { transform: translate(30px, 80px) rotate(360deg) scale(1); }
+    80% { transform: translate(-40px, -50px) rotate(180deg) scale(0.95); }
+  }
+  @keyframes fly5 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    30% { transform: translate(-80px, 40px) rotate(-100deg) scale(1.05); }
+    70% { transform: translate(50px, -70px) rotate(-200deg) scale(0.9); }
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
 `;
 
 const Shape = ({ children, style }) => (
@@ -194,10 +210,10 @@ const shapesConfig = {
   ],
 };
 
-const animations = ["fly1", "fly2", "fly3"];
+const animations = ["fly1", "fly2", "fly3", "fly4", "fly5"];
 
 export default function SquidGameShapes({ type }) {
-  const numShapes = 30;
+  const numShapes = 50; // This will be updated in the next step
 
   const renderedShapes = useMemo(() => {
     const availableShapes = shapesConfig[type] || [];
@@ -208,11 +224,12 @@ export default function SquidGameShapes({ type }) {
       const animName = animations[i % animations.length];
       const duration = 15 + Math.random() * 10; // 15-25s
       const delay = Math.random() * 5; // 0-5s
+      const pulseDelay = Math.random() * 2; // 0-2s for pulse animation
 
       const style = {
         top: `${10 + Math.random() * 80}%`, // 10-90%
         left: `${10 + Math.random() * 80}%`, // 10-90%
-        animation: `${animName} ${duration}s ${delay}s infinite linear, fadeIn 1s ${delay}s forwards`,
+        animation: `${animName} ${duration}s ${delay}s infinite linear, pulse 2s ${pulseDelay}s infinite ease-in-out alternate, fadeIn 1s ${delay}s forwards`,
         opacity: 0, // Start with opacity 0
       };
 
