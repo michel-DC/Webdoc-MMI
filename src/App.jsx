@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import LandingHero from "./components/landing-hero";
+import LandingHero from "./components/LandingHero";
 import Joueur from "./pages/joueur/Joueur";
 import Garde from "./pages/garde/Garde";
 import VIP from "./pages/vip/VIP";

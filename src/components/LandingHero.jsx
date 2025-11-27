@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import * as dat from "dat.gui";
 import ModelViewer from "./ModelViewer";
 import SquidGameShapes from "./SquidGameShapes";
+import IntroAnimation from "./IntroAnimation";
 
 export default function LandingHero() {
   const navigate = useNavigate();
@@ -71,6 +72,7 @@ export default function LandingHero() {
 
   return (
     <div className="w-screen h-screen flex flex-col m-0 p-0 overflow-hidden relative">
+      <IntroAnimation />
       <style>{`
         .dg.ac { display: none !important; }
         .filler {
@@ -128,7 +130,7 @@ export default function LandingHero() {
       <div
         ref={card1Ref}
         onMouseMove={(e) => handleCardMouseMove(e, card1Ref, setMouse1)}
-        onClick={() => navigate('/joueur')}
+        onClick={() => navigate("/joueur")}
         className="flex-1 w-full border-b-2 border-[#E54B6A] relative group cursor-pointer"
         style={{ zIndex: 1 }}
       >
@@ -161,7 +163,7 @@ export default function LandingHero() {
       <div
         ref={card2Ref}
         onMouseMove={(e) => handleCardMouseMove(e, card2Ref, setMouse2)}
-        onClick={() => navigate('/garde')}
+        onClick={() => navigate("/garde")}
         className="flex-1 w-full border-b-2 border-[#1A5632] relative group cursor-pointer"
         style={{ zIndex: 1 }}
       >
@@ -191,7 +193,7 @@ export default function LandingHero() {
       <div
         ref={card3Ref}
         onMouseMove={(e) => handleCardMouseMove(e, card3Ref, setMouse3)}
-        onClick={() => navigate('/vip')}
+        onClick={() => navigate("/vip")}
         className="flex-1 w-full relative group cursor-pointer"
         style={{ zIndex: 1 }}
       >
