@@ -1,8 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import * as dat from "dat.gui";
 import ModelViewer from "./ModelViewer";
+import SquidGameShapes from "./SquidGameShapes";
 
 export default function LandingHero() {
+  const navigate = useNavigate();
   const canvasRef = useRef(null);
   const [widths, setWidths] = useState(["0%", "0%", "0%"]);
   const [opacities, setOpacities] = useState([0, 0, 0]);
@@ -76,8 +79,24 @@ export default function LandingHero() {
           left: 0;
           height: 100%;
           background-color: white;
-          transition: width 1s ease-in-out, background-color 0.3s;
+          transition: width 1s ease-in-out;
           z-index: 1;
+        }
+        .filler::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 0;
+          transition: width 0.4s ease-in-out;
+        }
+        .filler-joueur::before { background-color: #1A5632; }
+        .filler-garde::before { background-color: #E54B6A; }
+        .filler-vip::before { background-color: #FFD700; }
+
+        .group:hover .filler::before {
+          width: 100%;
         }
         .card-content {
           position: relative;
@@ -91,9 +110,6 @@ export default function LandingHero() {
         .title-font {
           font-family: 'Black Ops One', sans-serif;
         }
-        .group:hover .filler-joueur { background-color: #1A5632; }
-        .group:hover .filler-garde { background-color: #E54B6A; }
-        .group:hover .filler-vip { background-color: #FFD700; }
       `}</style>
 
       <canvas
@@ -112,10 +128,14 @@ export default function LandingHero() {
       <div
         ref={card1Ref}
         onMouseMove={(e) => handleCardMouseMove(e, card1Ref, setMouse1)}
-        className="flex-1 w-full border-b-2 border-[#E54B6A] relative group"
+        onClick={() => navigate('/joueur')}
+        className="flex-1 w-full border-b-2 border-[#E54B6A] relative group cursor-pointer"
         style={{ zIndex: 1 }}
       >
-        <div className="filler filler-joueur" style={{ width: widths[0] }}></div>
+        <div
+          className="filler filler-joueur"
+          style={{ width: widths[0] }}
+        ></div>
 
         <div
           className="card-content"
@@ -130,7 +150,10 @@ export default function LandingHero() {
             />
           </div>
 
-          <span className="title-font text-8xl font-bold pr-10 group-hover:text-white transition-colors duration-300">Joueur</span>
+          <span className="title-font text-8xl font-bold pr-10 group-hover:text-white transition-colors duration-300">
+            Joueur
+          </span>
+          <SquidGameShapes type="player" />
         </div>
       </div>
 
@@ -138,7 +161,8 @@ export default function LandingHero() {
       <div
         ref={card2Ref}
         onMouseMove={(e) => handleCardMouseMove(e, card2Ref, setMouse2)}
-        className="flex-1 w-full border-b-2 border-[#1A5632] relative group"
+        onClick={() => navigate('/garde')}
+        className="flex-1 w-full border-b-2 border-[#1A5632] relative group cursor-pointer"
         style={{ zIndex: 1 }}
       >
         <div className="filler filler-garde" style={{ width: widths[1] }}></div>
@@ -156,7 +180,10 @@ export default function LandingHero() {
             />
           </div>
 
-          <span className="title-font text-8xl font-bold pr-10 group-hover:text-white transition-colors duration-300">Garde</span>
+          <span className="title-font text-8xl font-bold pr-10 group-hover:text-white transition-colors duration-300">
+            Garde
+          </span>
+          <SquidGameShapes type="guard" />
         </div>
       </div>
 
@@ -164,7 +191,8 @@ export default function LandingHero() {
       <div
         ref={card3Ref}
         onMouseMove={(e) => handleCardMouseMove(e, card3Ref, setMouse3)}
-        className="flex-1 w-full relative group"
+        onClick={() => navigate('/vip')}
+        className="flex-1 w-full relative group cursor-pointer"
         style={{ zIndex: 1 }}
       >
         <div className="filler filler-vip" style={{ width: widths[2] }}></div>
@@ -182,7 +210,10 @@ export default function LandingHero() {
             />
           </div>
 
-          <span className="title-font text-8xl font-bold pr-10 group-hover:text-white transition-colors duration-300">VIP</span>
+          <span className="title-font text-8xl font-bold pr-10 group-hover:text-white transition-colors duration-300">
+            VIP
+          </span>
+          <SquidGameShapes type="vip" />
         </div>
       </div>
     </div>
