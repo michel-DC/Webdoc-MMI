@@ -15,7 +15,7 @@ export default function HomePage() {
         Choisissez votre point de vue
       </h1>
 
-      <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>
+      <Canvas camera={{ position: [0, 0, 8], fov: 50 }} className="mt-30">
         <ambientLight intensity={0.4} />
         {/* Lumières plus dramatiques pour mettre en valeur les formes 3D */}
         <spotLight
@@ -63,8 +63,8 @@ export default function HomePage() {
             modelPath="/3D/landing/vue-game-master.glb"
             url="/point-de-vue-vip"
             label="Le VIP"
-            scale={0.9}
-            modelOffset={[0, -1, 0]}
+            scale={3.5}
+            modelOffset={[0, -2, 0]}
             textOffset={[0, -1.8, 0]}
           />
         </Physics>

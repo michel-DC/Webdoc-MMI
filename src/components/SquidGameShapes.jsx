@@ -53,7 +53,7 @@ const shapesConfig = {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <circle cx="50" cy="50" r="40" stroke="white" strokeWidth="5" />
+      <circle cx="50" cy="50" r="40" stroke="#E50914" strokeWidth="5" />
     </svg>,
     // Triangle
     <svg
@@ -65,7 +65,7 @@ const shapesConfig = {
     >
       <path
         d="M50 10 L90 80 H10 Z"
-        stroke="white"
+        stroke="#E50914"
         strokeWidth="5"
         strokeLinejoin="round"
       />
@@ -80,7 +80,7 @@ const shapesConfig = {
     >
       <path
         d="M50 5 L61.8 38.2 H98 L68.2 59.8 L79 92 L50 70 L21 92 L31.8 59.8 L2 38.2 H38.2 Z"
-        stroke="white"
+        stroke="#E50914"
         strokeWidth="5"
         strokeLinejoin="round"
       />
@@ -95,13 +95,13 @@ const shapesConfig = {
     >
       <path
         d="M10 50 A 40 40 0 0 1 90 50 H10 Z"
-        stroke="white"
+        stroke="#E50914"
         strokeWidth="5"
       />
-      <path d="M50 50 V 90" stroke="white" strokeWidth="5" />
+      <path d="M50 50 V 90" stroke="#E50914" strokeWidth="5" />
       <path
         d="M40 90 C 40 80, 60 80, 60 90"
-        stroke="white"
+        stroke="#E50914"
         strokeWidth="5"
         fill="none"
       />
@@ -116,7 +116,7 @@ const shapesConfig = {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <circle cx="50" cy="50" r="40" stroke="white" strokeWidth="5" />
+      <circle cx="50" cy="50" r="40" stroke="#E50914" strokeWidth="5" />
     </svg>,
     // Triangle
     <svg
@@ -128,7 +128,7 @@ const shapesConfig = {
     >
       <path
         d="M50 10 L90 80 H10 Z"
-        stroke="white"
+        stroke="#E50914"
         strokeWidth="5"
         strokeLinejoin="round"
         fill="none"
@@ -147,7 +147,7 @@ const shapesConfig = {
         y="10"
         width="80"
         height="80"
-        stroke="white"
+        stroke="#E50914"
         strokeWidth="5"
       />
     </svg>,
@@ -165,10 +165,10 @@ const shapesConfig = {
         cx="50"
         cy="50"
         r="40"
-        stroke="white"
+        stroke="#E50914"
         strokeWidth="5"
-        fill="white"
-        fillOpacity={0.3}
+        fill="#E50914"
+        fillOpacity={0.4}
       />
     </svg>,
     // Triangle
@@ -181,11 +181,11 @@ const shapesConfig = {
     >
       <path
         d="M50 10 L90 80 H10 Z"
-        stroke="white"
+        stroke="#E50914"
         strokeWidth="5"
         strokeLinejoin="round"
-        fill="white"
-        fillOpacity={0.3}
+        fill="#E50914"
+        fillOpacity={0.4}
       />
     </svg>,
     // Square
@@ -201,10 +201,10 @@ const shapesConfig = {
         y="10"
         width="80"
         height="80"
-        stroke="white"
+        stroke="#E50914"
         strokeWidth="5"
-        fill="white"
-        fillOpacity={0.3}
+        fill="#E50914"
+        fillOpacity={0.4}
       />
     </svg>,
   ],
@@ -249,7 +249,7 @@ export default function SquidGameShapes({ type }) {
       <style>{`
         ${shapeAnims}
         @keyframes fadeIn {
-          to { opacity: 0.2; }
+          to { opacity: 0.4; }
         }
        `}</style>
       {renderedShapes}
