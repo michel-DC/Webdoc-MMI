@@ -1,5 +1,6 @@
 import React from 'react';
+import GardeEntryAnimation from './GardeEntryAnimation';
 
 export default function Garde() {
-  return <div><h1>Point de vue du Garde</h1></div>;
+  return <GardeEntryAnimation />;
 }
