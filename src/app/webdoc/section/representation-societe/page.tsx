@@ -257,28 +257,16 @@ export default function RepresentationSocietePage() {
         </div>
       </div>
 
-      {/* Images en bas */}
+      {/* Image en bas */}
       <div className="fixed bottom-0 left-0 right-0 pointer-events-none z-20">
-        <div className="absolute bottom-0 left-0 w-1/2 max-w-sm opacity-80">
+        <div className="absolute bottom-10 left-0 w-1/2 max-w-lg">
           <div className="relative w-full aspect-square">
             <Image
-              src="/images/journaliste/gauche.png"
-              alt="Journaliste de gauche"
+              src="/images/president.png"
+              alt="Président"
               fill
-              className="object-contain"
-              sizes="(max-width: 768px) 50vw, 30vw"
-            />
-          </div>
-        </div>
-
-        <div className="absolute bottom-0 right-0 w-1/2 max-w-sm opacity-80">
-          <div className="relative w-full aspect-square">
-            <Image
-              src="/images/journaliste/droite.png"
-              alt="Journaliste de droite"
-              fill
-              className="object-contain"
-              sizes="(max-width: 768px) 50vw, 30vw"
+              className="object-contain opacity-80"
+              sizes="(max-width: 768px) 50vw, 40vw"
             />
           </div>
         </div>

@@ -267,33 +267,31 @@ export default function WebdocCanvas() {
       ctx: CanvasRenderingContext2D,
       x: number,
       y: number,
-      size: number,
+      sideLength: number,
       color: string,
       text: string
     ) => {
       ctx.save();
       ctx.translate(x, y);
+      const height = (sideLength * Math.sqrt(3)) / 2;
       ctx.beginPath();
-      ctx.moveTo(0, -size / 2);
-      ctx.lineTo(-size / 2, size / 2);
-      ctx.lineTo(size / 2, size / 2);
+      ctx.moveTo(0, -height / 2);
+      ctx.lineTo(-sideLength / 2, height / 2);
+      ctx.lineTo(sideLength / 2, height / 2);
       ctx.closePath();
-      ctx.fillStyle = color;
-      ctx.fill();
-      ctx.strokeStyle = "#ffffff";
-      ctx.lineWidth = 3;
+      ctx.strokeStyle = "#ff2f6e"; // Pink color
+      ctx.lineWidth = 15;
       ctx.stroke();
 
       ctx.fillStyle = "#ffffff";
-      ctx.font = "bold 25px 'Montserrat', sans-serif";
+      ctx.font = "bold 18px 'Montserrat', sans-serif";
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      const maxWidth = size * 0.7; // 70% of triangle size for text width
+      const maxWidth = sideLength * 0.7; // 70% of sideLength for text width
       const lineHeight = 24; // Based on font size
-      wrapText(ctx, text, 0, size * 0.3, maxWidth, lineHeight); // Adjust Y for multi-line text
+      wrapText(ctx, text, 0, 60, maxWidth, lineHeight); // Adjust Y for multi-line text
       ctx.restore();
     };
-
     const drawCircle = (
       ctx: CanvasRenderingContext2D,
       x: number,
@@ -306,10 +304,8 @@ export default function WebdocCanvas() {
       ctx.translate(x, y);
       ctx.beginPath();
       ctx.arc(0, 0, radius, 0, Math.PI * 2);
-      ctx.fillStyle = color;
-      ctx.fill();
-      ctx.strokeStyle = "#ffffff";
-      ctx.lineWidth = 3;
+      ctx.strokeStyle = "#00a8a8"; // Green color
+      ctx.lineWidth = 15;
       ctx.stroke();
 
       ctx.fillStyle = "#ffffff";
@@ -405,7 +401,7 @@ export default function WebdocCanvas() {
           route: "/webdoc/section/avis-etudiants",
         });
       } else if (triangle.text === "Lien entre Squid Game et le capitalisme") {
-        const circleRadius = 150;
+        const circleRadius = 225;
         const lineLength = 800; // Distance from triangle to circle
 
         // First circle (top-right)
@@ -459,10 +455,10 @@ export default function WebdocCanvas() {
           x: circle2X,
           y: circle2Y,
           radius: circleRadius,
-          route: "/webdoc/section/capitalisme-lien/critique-sociale",
+          route: "/webdoc/section/avis-internaute",
         });
       } else if (triangle.text === "Impact de la série") {
-        const circleRadius = 150;
+        const circleRadius = 225;
         const lineLength = 800; // Distance from triangle to circle
 
         // Second circle (top-right)

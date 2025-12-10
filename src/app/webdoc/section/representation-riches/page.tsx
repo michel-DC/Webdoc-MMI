@@ -234,27 +234,27 @@ export default function RepresentationRichesPage() {
       </div>
 
       {/* Images en bas */}
-      <div className="fixed bottom-0 left-0 right-0 pointer-events-none z-20">
-        <div className="absolute bottom-0 left-0 w-1/2 max-w-sm opacity-80">
+      <div className="fixed bottom-0 left-0 right-0 pointer-events-none z-0">
+        <div className="absolute bottom-0 left-0 w-1/2 max-w-lg">
           <div className="relative w-full aspect-square">
             <Image
-              src="/images/journaliste/gauche.png"
+              src="/images/vip/vip-1.png"
               alt="Journaliste de gauche"
               fill
-              className="object-contain"
-              sizes="(max-width: 768px) 50vw, 30vw"
+              className="object-cover opacity-80"
+              sizes="(max-width: 768px) 50vw, 40vw"
             />
           </div>
         </div>
 
-        <div className="absolute bottom-0 right-0 w-1/2 max-w-sm opacity-80">
+        <div className="absolute bottom-0 right-0 w-1/2 max-w-lg">
           <div className="relative w-full aspect-square">
             <Image
-              src="/images/journaliste/droite.png"
+              src="/images/vip/vip-2.png"
               alt="Journaliste de droite"
               fill
-              className="object-contain"
-              sizes="(max-width: 768px) 50vw, 30vw"
+              className="object-cover opacity-80"
+              sizes="(max-width: 768px) 50vw, 40vw"
             />
           </div>
         </div>
