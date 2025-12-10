@@ -224,9 +224,7 @@ export default function MesuresEcolesPage() {
         </div>
       </div>
 
-      {/* Images en bas */}
-      <div className="fixed bottom-0 left-0 right-0 pointer-events-none z-0">
-        {/* Image bas gauche */}
+      {/* <div className="fixed bottom-0 left-0 right-0 pointer-events-none z-0">
         <div className="absolute bottom-0 left-0 w-1/2 max-w-lg">
           <div className="relative w-full aspect-square">
             <Image
@@ -239,7 +237,6 @@ export default function MesuresEcolesPage() {
           </div>
         </div>
 
-        {/* Image bas droite */}
         <div className="absolute bottom-0 right-0 w-1/2 max-w-lg">
           <div className="relative w-full aspect-square">
             <Image
@@ -251,7 +248,7 @@ export default function MesuresEcolesPage() {
             />
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Footer */}
       <div className="fixed bottom-0 left-0 right-0 z-40 p-6">

@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function AvisEtudiantsPage() {
   return (
-    <main className="relative w-full min-h-screen text-gray-200 overflow-x-hidden flex flex-col items-center justify-center">
+    <main className="relative w-full min-h-screen text-gray-200 overflow-x-hidden flex flex-col items-center justify-center mt-16">
       {/* Fond avec image floutée */}
       <div className="fixed inset-0 z-0">
         <Image
@@ -65,14 +65,14 @@ export default function AvisEtudiantsPage() {
         </header>
 
         {/* Video Player */}
-        <div className="w-full max-w-7xl mx-auto bg-black/50 rounded-lg shadow-2xl overflow-hidden border border-gray-700">
+        <div className="w-full max-w-7xl mx-auto bg-black/50 rounded-lg shadow-2xl overflow-hidden border border-gray-700 mb-24">
           <video
             className="w-full h-auto"
             controls
             autoPlay
-            loop
-            muted
+            preload="auto"
             playsInline
+            loop
           >
             <source src="/videos/video-interview.mp4" type="video/mp4" />
             Votre navigateur ne supporte pas la lecture de vidéos.

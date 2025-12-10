@@ -207,7 +207,7 @@ export default function WebdocCanvas() {
         color: "#ff2f6e",
         xOffset: 0,
         yOffset: -1200,
-        text: "Impact de la série",
+        text: "Impact de la série sur les enfants",
         route: "/webdoc/section/danger-enfants",
       }, // Top
       {
@@ -280,7 +280,7 @@ export default function WebdocCanvas() {
       ctx.lineTo(sideLength / 2, height / 2);
       ctx.closePath();
       ctx.strokeStyle = "#ff2f6e"; // Pink color
-      ctx.lineWidth = 15;
+      ctx.lineWidth = 10;
       ctx.stroke();
 
       ctx.fillStyle = "#ffffff";
@@ -305,7 +305,7 @@ export default function WebdocCanvas() {
       ctx.beginPath();
       ctx.arc(0, 0, radius, 0, Math.PI * 2);
       ctx.strokeStyle = "#00a8a8"; // Green color
-      ctx.lineWidth = 15;
+      ctx.lineWidth = 10;
       ctx.stroke();
 
       ctx.fillStyle = "#ffffff";
@@ -327,7 +327,7 @@ export default function WebdocCanvas() {
       ctx.moveTo(centreX, centreY);
       ctx.lineTo(triX, triY);
       ctx.strokeStyle = "rgba(255, 255, 255, 0.2)";
-      ctx.lineWidth = 2;
+      ctx.lineWidth = 4;
       ctx.stroke();
 
       // Draw triangle
@@ -355,7 +355,7 @@ export default function WebdocCanvas() {
         ctx.moveTo(triX, triY);
         ctx.lineTo(circle1X, circle1Y);
         ctx.strokeStyle = "rgba(255, 255, 255, 0.2)";
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 4;
         ctx.stroke();
         // Draw first circle
         drawCircle(
@@ -382,7 +382,7 @@ export default function WebdocCanvas() {
         ctx.moveTo(triX, triY);
         ctx.lineTo(circle2X, circle2Y);
         ctx.strokeStyle = "rgba(255, 255, 255, 0.2)";
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 4;
         ctx.stroke();
         // Draw second circle
         drawCircle(
@@ -391,7 +391,7 @@ export default function WebdocCanvas() {
           circle2Y,
           circleRadius,
           "#00a8a8",
-          "Avis d'étudiants"
+          "Avis des étudiants"
         );
         circleDecorationsRef.current.push({
           type: "circle",
@@ -412,7 +412,7 @@ export default function WebdocCanvas() {
         ctx.moveTo(triX, triY);
         ctx.lineTo(circle1X, circle1Y);
         ctx.strokeStyle = "rgba(255, 255, 255, 0.2)";
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 4;
         ctx.stroke();
         // Draw first circle
         drawCircle(
@@ -439,7 +439,7 @@ export default function WebdocCanvas() {
         ctx.moveTo(triX, triY);
         ctx.lineTo(circle2X, circle2Y);
         ctx.strokeStyle = "rgba(255, 255, 255, 0.2)";
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 4;
         ctx.stroke();
         // Draw second circle
         drawCircle(
@@ -457,7 +457,7 @@ export default function WebdocCanvas() {
           radius: circleRadius,
           route: "/webdoc/section/avis-internaute",
         });
-      } else if (triangle.text === "Impact de la série") {
+      } else if (triangle.text === "Impact de la série sur les enfants") {
         const circleRadius = 225;
         const lineLength = 800; // Distance from triangle to circle
 
@@ -469,7 +469,7 @@ export default function WebdocCanvas() {
         ctx.moveTo(triX, triY);
         ctx.lineTo(circle2X, circle2Y);
         ctx.strokeStyle = "rgba(255, 255, 255, 0.2)";
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 4;
         ctx.stroke();
         // Draw second circle
         drawCircle(

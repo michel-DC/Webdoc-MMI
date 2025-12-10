@@ -199,7 +199,7 @@ export default function Home() {
           >
             <video
               className="max-w-8xl max-h-[80vh] w-auto h-auto object-contain rounded-md shadow-lg"
-              src="/videos/scene-entry.mp4"
+              src="/videos/video-intro.mp4"
               autoPlay
               controls={false}
               playsInline

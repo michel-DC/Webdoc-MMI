@@ -113,8 +113,9 @@ export default function AnalysisPage() {
           },
           0.2
         )
-        .to(
+        .fromTo(
           textRef.current,
+          { opacity: 1 },
           {
             opacity: 0,
             ease: "power2.inOut",
@@ -156,9 +157,9 @@ export default function AnalysisPage() {
       {/* Image grande en bas à gauche */}
       <div
         ref={imageRef}
-        className="fixed bottom-0 left-0 z-10 w-1/3 will-change-transform"
+        className="fixed bottom-[15vh] left-0 z-10 w-2/5 will-change-transform"
       >
-        <div className="relative h-[60vh]">
+        <div className="relative h-[90vh]">
           <Image
             src="/images/etudiants/ben.png"
             alt="Ben Shapiro"
@@ -358,7 +359,7 @@ export default function AnalysisPage() {
           className="group inline-flex items-center gap-3 px-6 py-3 border border-gray-700 rounded-full hover:border-white hover:bg-white/10 transition-all duration-300"
         >
           <span className="text-sm tracking-[0.2em] uppercase">
-            Retour aux chapitres
+            Retour sur la carte mentale
           </span>
           <div className="relative w-6 h-6">
             <div className="absolute inset-0 border border-gray-600 rounded-full group-hover:border-white transition-all duration-300" />
