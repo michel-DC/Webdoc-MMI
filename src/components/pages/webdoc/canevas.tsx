@@ -214,7 +214,7 @@ export default function WebdocCanvas() {
         color: "#ff2f6e",
         xOffset: 0,
         yOffset: 1200,
-        text: "Avis divergeant du public",
+        text: "Avis divergeant du public (Introduction)",
         route: "/webdoc/section/premice",
       }, // Bottom
       {
@@ -347,7 +347,7 @@ export default function WebdocCanvas() {
       });
 
       // Add additional lines and circles for "Avis divergeant du public"
-      if (triangle.text === "Avis divergeant du public") {
+      if (triangle.route === "/webdoc/section/premice") {
         const circleRadius = 150;
         const lineLength = 800; // Distance from triangle to circle
 
