@@ -214,7 +214,7 @@ export default function WebdocCanvas() {
         color: "#ff2f6e",
         xOffset: 0,
         yOffset: 1200,
-        text: "Avis divergeant du public",
+        text: "Avis divergeant du public (Introduction)",
         route: "/webdoc/section/premice",
       }, // Bottom
       {
