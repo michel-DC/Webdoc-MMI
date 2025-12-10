@@ -113,8 +113,9 @@ export default function AnalysisPage() {
           },
           0.2
         )
-        .to(
+        .fromTo(
           textRef.current,
+          { opacity: 1 },
           {
             opacity: 0,
             ease: "power2.inOut",
@@ -216,7 +217,7 @@ export default function AnalysisPage() {
                   longuement de Squid Game dans une vidéo intitulée Ben Shapiro
                   Reviews &quot;Squid Game&quot; publiée sur sa chaîne YouTube
                   en 2021 dans laquelle il explique que contrairement à ce que
-                  prétends le réalisateur de la série, &quote;Squid Game ne
+                  prétends le réalisateur de la série, Squid Game ne
                   dépeint pas un capitalisme dystopique, mais la triste réalité
                   du communisme&quot;.
                 </p>
@@ -341,14 +342,18 @@ export default function AnalysisPage() {
               </div>
             </div>
 
-            {/* Indicateur de scroll */}
-            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
-              <div className="w-6 h-6 flex justify-center opacity-50">
-                <div className="w-1 h-3 bg-black rounded-full animate-bounce" />
-              </div>
-            </div>
+
+          </div>
+
+          {/* Indicateur de scroll (juste en dessous de la boîte) */}
+          <div className="absolute -bottom-10 left-0 right-0 z-30 pointer-events-none flex flex-col items-center gap-2">
+            <span className="text-[15px] tracking-[0.2em] uppercase text-white/50 font-medium">
+              Scroll pour voir la suite
+            </span>
           </div>
         </div>
+
+
       </div>
 
       {/* Navigation de retour */}
