@@ -28,8 +28,7 @@ export default function Home() {
   const contentRef = useRef(null);
   const videoRef = useRef(null);
   const [videoVisible, setVideoVisible] = useState(false);
-  const [isMuted, setIsMuted] = useState(true); // State for mute control
-  const audioRef = useRef<HTMLAudioElement>(null); // Ref for audio element
+
   const [showIntro, setShowIntro] = useState(true);
 
   useEffect(() => {
@@ -39,13 +38,7 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Toggle mute function
-  const toggleMute = () => {
-    if (audioRef.current) {
-      audioRef.current.muted = !audioRef.current.muted;
-      setIsMuted(audioRef.current.muted);
-    }
-  };
+
 
   useLayoutEffect(() => {
     if (showIntro) return;
@@ -124,21 +117,9 @@ export default function Home() {
         className="relative w-full h-screen text-white overflow-hidden font-mono p-8 md:p-12"
       >
         {/* Background audio */}
-        <audio
-          ref={audioRef}
-          src="/sound/song-landing-page.mp3"
-          loop
-          autoPlay
-          muted={isMuted}
-        />
 
-        {/* Mute toggle button */}
-        <button
-          onClick={toggleMute}
-          className="fixed bottom-4 right-4 z-50 p-2 bg-gray-800 text-white rounded-full text-xs opacity-70 hover:opacity-100 transition-opacity"
-        >
-          {isMuted ? "Unmute" : "Mute"}
-        </button>
+
+
 
         <div className="noise-effect"></div>
 
