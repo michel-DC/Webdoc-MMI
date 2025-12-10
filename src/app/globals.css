@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-squid-pink: #ed1b76;
+  --color-squid-green: #037a76;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/landing/squid-game.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-title {
+  font-family: 'Black Ops One', cursive;
+}
+
+@keyframes rotate-gradient {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Added for redesign */
+.gradient-background {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(to right, var(--color-squid-green), var(--color-squid-pink));
+  filter: blur(100px);
+  animation: rotate-gradient 30s linear infinite; /* Slower, more subtle rotation */
+}
+
+.noise-effect {
+  position: absolute;
+  inset: 0; /* Cover the whole screen */
+  pointer-events: none;
+  z-index: 1; /* Above the gradient but below the content */
+}
+
+.noise-effect::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1000 1000' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+/* --- Glitch Effect --- */
+.glitch {
+  position: relative;
+  color: white;
+  animation: glitch-skew 1s infinite linear alternate-reverse;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 #ff00c1;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+  clip: rect(85px, 450px, 90px, 0);
+  animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% { clip: rect(42px, 9999px, 44px, 0); transform: skew(0.3deg); }
+  5% { clip: rect(17px, 9999px, 96px, 0); }
+  /* ... (add more steps for a more complex glitch) ... */
+  100% { clip: rect(96px, 9999px, 98px, 0); transform: skew(-0.2deg); }
+}
+
+@keyframes glitch-anim2 {
+  0% { clip: rect(85px, 9999px, 90px, 0); transform: skew(0.2deg); }
+  /* ... (add more steps) ... */
+  100% { clip: rect(40px, 9999px, 42px, 0); transform: skew(-0.3deg); }
+}
+
+@keyframes glitch-skew {
+  0% { transform: skew(0deg); }
+  50% { transform: skew(0.2deg); }
+  100% { transform: skew(0deg); }
+}
