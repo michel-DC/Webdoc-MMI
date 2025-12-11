@@ -151,43 +151,70 @@ export default function MesuresEcolesPage() {
         {/* Content Blocks */}
         <div className="space-y-12">
           {CONTENT.map((block, index) => (
-            <div
-              key={block.id}
-              ref={(el) => {
-                contentBlocksRef.current[index] = el;
-              }}
-              className={`flex ${
-                index % 2 === 0 ? "justify-start" : "justify-end"
-              }`}
-            >
-              <div className="max-w-2xl">
-                <div className="relative p-8 md:p-10 bg-white/5 backdrop-blur-md rounded-xl border border-gray-700/50 shadow-2xl shadow-black/20">
-                  <h3 className="text-2xl font-bold text-white mb-6 border-b border-gray-700 pb-4">
-                    {block.title}
-                  </h3>
-                  <div className="space-y-6 text-gray-300 leading-relaxed font-light text-base md:text-lg">
-                    {block.paragraphs.map((p, i) => (
-                      <p key={i}>{p}</p>
-                    ))}
-                    {block.links && (
-                      <div className="flex flex-col items-start gap-4 mt-6 pt-6 border-t border-gray-700/50">
-                        {block.links.map((link) => (
-                          <Link
-                            key={link.url}
-                            href={link.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-sm text-blue-400 hover:underline hover:text-blue-300 transition-colors"
-                          >
-                            {link.text} ↗
-                          </Link>
-                        ))}
-                      </div>
-                    )}
+            <React.Fragment key={block.id}>
+              <div
+                ref={(el) => {
+                  contentBlocksRef.current[index] = el;
+                }}
+                className={`flex ${
+                  index % 2 === 0 ? "justify-start" : "justify-end"
+                }`}
+              >
+                <div className="max-w-2xl">
+                  <div className="relative p-8 md:p-10 bg-white/5 backdrop-blur-md rounded-xl border border-gray-700/50 shadow-2xl shadow-black/20">
+                    <h3 className="text-2xl font-bold text-white mb-6 border-b border-gray-700 pb-4">
+                      {block.title}
+                    </h3>
+                    <div className="space-y-6 text-gray-300 leading-relaxed font-light text-base md:text-lg">
+                      {block.paragraphs.map((p, i) => (
+                        <p key={i}>{p}</p>
+                      ))}
+                      {block.links && (
+                        <div className="flex flex-col items-start gap-4 mt-6 pt-6 border-t border-gray-700/50">
+                          {block.links.map((link) => (
+                            <Link
+                              key={link.url}
+                              href={link.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-sm text-blue-400 hover:underline hover:text-blue-300 transition-colors"
+                            >
+                              {link.text} ↗
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+              {block.id === 1 && (
+                <div className="flex justify-center my-12">
+                  <div className="relative w-full max-w-2xl h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-2xl shadow-black/60 border border-gray-600/30 bg-gray-900/50">
+                    <Image
+                      src="/images/image.webp"
+                      alt="Section illustration ministère"
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-300"
+                      priority
+                    />
+                  </div>
+                </div>
+              )}
+              {block.id === 2 && (
+                <div className="flex justify-center my-12">
+                  <div className="relative w-full max-w-2xl h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-2xl shadow-black/60 border border-gray-600/30 bg-gray-900/50">
+                    <Image
+                      src="/images/image2.webp"
+                      alt="Section illustration terrain"
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-300"
+                      priority
+                    />
+                  </div>
+                </div>
+              )}
+            </React.Fragment>
           ))}
         </div>
 
