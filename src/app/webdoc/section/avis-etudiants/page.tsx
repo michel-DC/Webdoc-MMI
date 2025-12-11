@@ -74,7 +74,7 @@ export default function AvisEtudiantsPage() {
             playsInline
             loop
           >
-            <source src="/videos/video-interview.mp4" type="video/mp4" />
+            <source src="/videos/squid-game-v2.mp4" type="video/mp4" />
             Votre navigateur ne supporte pas la lecture de vidéos.
           </video>
         </div>
